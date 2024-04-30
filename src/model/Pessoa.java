@@ -38,4 +38,11 @@ public class Pessoa {
         this.cpf = cpf;
         this.senha = senha;
     }
+
+    @Override
+    public String toString() {
+        return "Pessoa{" + "nome=" + nome + ", cpf=" + cpf + ", senha=" + senha + '}';
+    }
+    
+    
 }

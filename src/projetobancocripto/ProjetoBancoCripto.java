@@ -1,5 +1,7 @@
 package projetobancocripto;
 
+import view.Login;
+
 /**
  *
  * @author unifrcampos
@@ -7,7 +9,8 @@ package projetobancocripto;
 public class ProjetoBancoCripto {
 
     public static void main(String[] args) {
-
+        Login lf = new Login();
+        lf.setVisible(true);
     }
     
 }

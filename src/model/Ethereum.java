@@ -2,18 +2,30 @@
 package model;
 
 public class Ethereum extends Moedas{
+    private double quant;
     
-    public Ethereum(String nomeMoeda, double taxa1, double taxa2, double quant) {
-        super("Bitcoin", 0.01, 0.02, 0);
+    public Ethereum(double taxa1, double taxa2) {
+        super(0.01, 0.02);
+        this.quant = 0;
     }
     
-    public void comprarEthereum(double valorCompra, double quantCompra){
-        double compra = (valorCompra*quantCompra)*0.01;
-        setQuant(getQuant() + quantCompra);
+    public void CompraEthereum(double valorComprar, double QuantComprar){
+        double transacao = (valorComprar * QuantComprar)* 0.01;
+        this.quant = this.quant + QuantComprar;
     }
-    public void venderEthereum(double valorVenda, double quantVenda){
-        double compra = (valorVenda*quantVenda)*0.02;
-        setQuant(getQuant() + quantVenda);
+    
+    public void VendaEthereum(double valorVenda, double QuantVenda){
+        double transacao = (valorVenda * QuantVenda)* 0.02;
+        this.quant = this.quant + QuantVenda;
     }
+
+    public double getQuant() {
+        return quant;
+    }
+
+    public void setQuant(double quant) {
+        this.quant = quant;
+    }
+    
     
 }

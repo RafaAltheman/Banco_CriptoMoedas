@@ -235,7 +235,8 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+        Deposito deposito = new Deposito();
+        deposito.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -245,13 +246,13 @@ public class Menu extends javax.swing.JFrame {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         SenhaConfirmar senhaConfirmar = new SenhaConfirmar();
         Login login = new Login();
+        TransacoesMoedas transacoesMoedasFrame = new TransacoesMoedas();
         senhaConfirmar.setVisible(true);
+        transacoesMoedasFrame.setVisible(false);
         if(senhaConfirmar.getTxtSenhaConfirmar().getText().equals(login.getTxtSenha().getText())){
-            TransacoesMoedas transacoesMoedasFrame = new TransacoesMoedas();
-            transacoesMoedasFrame.setVisible(true);
+            transacoesMoedasFrame.setVisible(false);
             this.setVisible(false);
         }
-        
     }//GEN-LAST:event_jButton5ActionPerformed
 
     /**

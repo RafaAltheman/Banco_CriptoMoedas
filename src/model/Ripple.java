@@ -2,18 +2,27 @@
 package model;
 
 public class Ripple extends Moedas{
+    private double quant;
     
-    public Ripple(String nomeMoeda, double taxa1, double taxa2, double quant) {
-        super("Ripple", 0.01, 0.01, 0);
+    public Ripple(double taxa1, double taxa2) {
+        super(0.01, 0.01);
     }
     
-    public void comprarRipple(double valorCompra, double quantCompra){
-        double compra = (valorCompra*quantCompra)*0.01;
-        setQuant(getQuant() + quantCompra);
-    }
-    public void venderRipple(double valorVenda, double quantVenda){
-        double compra = (valorVenda*quantVenda)*0.01;
-        setQuant(getQuant() + quantVenda);
+    public void CompraRipple(double valorComprar, double QuantComprar){
+        double transacao = (valorComprar * QuantComprar)* 0.01;
+        this.quant = this.quant + QuantComprar;
     }
     
+    public void VendaRipple(double valorVenda, double QuantVenda){
+        double transacao = (valorVenda * QuantVenda)* 0.01;
+        this.quant = this.quant + QuantVenda;
+    }
+
+    public double getQuant() {
+        return quant;
+    }
+
+    public void setQuant(double quant) {
+        this.quant = quant;
+    }
 }

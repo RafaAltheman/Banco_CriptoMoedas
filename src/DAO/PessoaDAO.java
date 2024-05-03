@@ -24,4 +24,16 @@ public class PessoaDAO {
         ResultSet resultado = statement.getResultSet();
         return resultado;
     }
+    
+    public ResultSet confirmar(Pessoa pessoa) throws SQLException {
+        String sql = "select * from pessoa where senha = ?";
+
+        PreparedStatement statement = conn.prepareStatement(sql);
+        statement.setString(1, pessoa.getSenha());
+        statement.execute();
+        ResultSet resultado = statement.getResultSet();
+        return resultado;
+    }
+
+   
 }

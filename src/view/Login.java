@@ -219,6 +219,9 @@ public class Login extends javax.swing.JFrame {
 //        });
 //    }
 
+    // Dentro da classe Login
+    private Menu view;
+
     private ControllerLogin controller;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

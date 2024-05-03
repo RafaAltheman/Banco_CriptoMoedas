@@ -27,7 +27,7 @@ public class ControllerLogin {
             ResultSet res = dao.consultar(pessoa);
             if(res.next()){
                 JOptionPane.showMessageDialog(view,"Login Feito!");
-                Menu viewMenu = new Menu();
+                Menu viewMenu = new Menu(pessoa);
                 viewMenu.setVisible(true);
                 view.setVisible(false);
             } else{

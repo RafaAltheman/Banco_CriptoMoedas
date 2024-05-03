@@ -9,14 +9,17 @@ public class Investidor extends Pessoa{
 
     public Investidor(String nome, String cpf, String senha) {
         super(nome, cpf, senha);
+        carteira = new Carteira();
+    }
+
+    public Carteira getCarteira() {
+        return carteira;
+    }
+
+    public void setCarteira(Carteira carteira) {
+        this.carteira = carteira;
     }
     
-    public void criacaoDaCarteira(){
-        if(carteira == null){
-            this.carteira = new Carteira();
-            System.out.println("Carteira criada!");
-        }else{
-            System.out.println("O investidor ja possui uma carteira!");
-        }
-    }
+    
+
 }

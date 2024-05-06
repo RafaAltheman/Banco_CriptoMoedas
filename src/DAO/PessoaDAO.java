@@ -5,6 +5,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import model.Carteira;
+import model.Investidor;
 import model.Pessoa;
 
 public class PessoaDAO {
@@ -35,5 +37,12 @@ public class PessoaDAO {
         return resultado;
     }
 
-   
+    public void atualizarDeposito(Pessoa pessoa, Carteira carteira, Investidor investidor)throws SQLException{
+        String sql = "update pessoa set saldoReal = ? where senha = ?";
+        PreparedStatement statement = conn.prepareStatement(sql);
+        statement.setDouble(1, investidor.getCarteira().getSaldoReal().getQuant());
+        statement.setString(2, pessoa.getSenha());
+        statement.execute();
+        conn.close();
+    }
 }

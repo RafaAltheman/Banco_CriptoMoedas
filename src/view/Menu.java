@@ -361,7 +361,9 @@ public class Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        // TODO add your handling code here:
+        Sair sair = new Sair();
+        sair.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
@@ -369,9 +371,14 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        TransacoesMoedas transacoesMoedasFrame = new TransacoesMoedas();
-        transacoesMoedasFrame.setVisible(true);
-        this.setVisible(false);
+        if(this.controller.verificarSenha(this.pessoa, this)){
+            TransacoesMoedas transacoesMoedasFrame = new TransacoesMoedas();
+            transacoesMoedasFrame.setVisible(true);
+            this.setVisible(false);
+        }
+        else{
+            System.out.println("nao abriu");
+        }
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -388,16 +395,34 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        Deposito deposito = new Deposito();
-        deposito.setVisible(true);
+        if(this.controller.verificarSenha(this.pessoa, this)){
+            Deposito deposito = new Deposito();
+            deposito.setVisible(true);
+        }
+        else{
+            System.out.println("nao deu");
+        }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
+        if(this.controller.verificarSenha(this.pessoa, this)){
+            Saque saque = new Saque();
+            saque.setVisible(true);
+        }
+        else{
+            System.out.println("nao deu");
+        }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        
+        if(this.controller.verificarSenha(this.pessoa, this)){
+            TransacoesMoedas transacoesMoedasFrame = new TransacoesMoedas();
+            transacoesMoedasFrame.setVisible(true);
+            this.setVisible(false);
+        }
+        else{
+            System.out.println("nao abriu");
+        }
     }//GEN-LAST:event_jButton5ActionPerformed
 
     /**

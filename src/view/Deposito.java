@@ -4,6 +4,11 @@
  */
 package view;
 
+import control.ControllerSaqueDeposito;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
 /**
  *
  * @author unifrcampos
@@ -15,8 +20,58 @@ public class Deposito extends javax.swing.JFrame {
      */
     public Deposito() {
         initComponents();
+        this.control = new ControllerSaqueDeposito(this);
     }
 
+    public JButton getBtDeposito() {
+        return btDeposito;
+    }
+
+    public void setBtDeposito(JButton btDeposito) {
+        this.btDeposito = btDeposito;
+    }
+
+    public JTextField getDeposito() {
+        return deposito;
+    }
+
+    public void setDeposito(JTextField deposito) {
+        this.deposito = deposito;
+    }
+
+    public JLabel getjLabel1() {
+        return jLabel1;
+    }
+
+    public void setjLabel1(JLabel jLabel1) {
+        this.jLabel1 = jLabel1;
+    }
+
+    public JLabel getjLabel2() {
+        return jLabel2;
+    }
+
+    public void setjLabel2(JLabel jLabel2) {
+        this.jLabel2 = jLabel2;
+    }
+
+    public JLabel getjLabel3() {
+        return jLabel3;
+    }
+
+    public void setjLabel3(JLabel jLabel3) {
+        this.jLabel3 = jLabel3;
+    }
+
+    public JTextField getSenha() {
+        return senha;
+    }
+
+    public void setSenha(JTextField senha) {
+        this.senha = senha;
+    }
+
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -30,6 +85,8 @@ public class Deposito extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         deposito = new javax.swing.JTextField();
         btDeposito = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        senha = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -52,6 +109,9 @@ public class Deposito extends javax.swing.JFrame {
             }
         });
 
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel3.setText("Digite sua senha:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -63,13 +123,18 @@ public class Deposito extends javax.swing.JFrame {
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(93, 93, 93)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(deposito, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(deposito)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(senha)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(170, 170, 170)
                         .addComponent(btDeposito)))
                 .addContainerGap(88, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addGap(136, 136, 136))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -80,7 +145,11 @@ public class Deposito extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
                 .addComponent(deposito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel3)
+                .addGap(18, 18, 18)
+                .addComponent(senha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                 .addComponent(btDeposito)
                 .addGap(49, 49, 49))
         );
@@ -89,7 +158,7 @@ public class Deposito extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btDepositoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btDepositoActionPerformed
-        // TODO add your handling code here:
+        control.atualizarDeposito();
     }//GEN-LAST:event_btDepositoActionPerformed
 
     private void depositoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_depositoActionPerformed
@@ -131,10 +200,13 @@ public class Deposito extends javax.swing.JFrame {
 //        });
 //    }
 
+    private ControllerSaqueDeposito control;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btDeposito;
     private javax.swing.JTextField deposito;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JTextField senha;
     // End of variables declaration//GEN-END:variables
 }

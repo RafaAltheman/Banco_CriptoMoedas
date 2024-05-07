@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import model.Investidor;
 import model.Pessoa;
 import view.TransacoesMoedas;
 import view.SenhaConfirmar;
@@ -19,16 +20,15 @@ import view.Login;
  * @author unifrcampos
  */
 public class Menu extends javax.swing.JFrame {
-
-    Pessoa pessoa;
+    private Investidor investidor;
     /**
      * Creates new form Menu
      */
-    public Menu(Pessoa pessoa) throws SQLException {
+    public Menu(Investidor investidor) throws SQLException {
         initComponents();
         this.controller = new ControllerConfirma();
         view1 = new Login();
-        this.pessoa = pessoa;
+        this.investidor = investidor;
     }
 
     public JButton getjButton1() {
@@ -371,7 +371,7 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        if(this.controller.verificarSenha(this.pessoa, this)){
+        if(this.controller.verificarSenha(this.investidor, this)){
             TransacoesMoedas transacoesMoedasFrame = new TransacoesMoedas();
             transacoesMoedasFrame.setVisible(true);
             this.setVisible(false);
@@ -382,7 +382,7 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if(this.controller.verificarSenha(this.pessoa, this)){
+        if(this.controller.verificarSenha(this.investidor, this)){
             System.out.println("deu");
         }
         else{
@@ -395,8 +395,8 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        if(this.controller.verificarSenha(this.pessoa, this)){
-            Deposito deposito = new Deposito();
+        if(this.controller.verificarSenha(this.investidor, this)){
+            Deposito deposito = new Deposito(investidor);
             deposito.setVisible(true);
         }
         else{
@@ -405,8 +405,8 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        if(this.controller.verificarSenha(this.pessoa, this)){
-            Saque saque = new Saque();
+        if(this.controller.verificarSenha(this.investidor, this)){
+            Saque saque = new Saque(investidor);
             saque.setVisible(true);
         }
         else{
@@ -415,7 +415,7 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        if(this.controller.verificarSenha(this.pessoa, this)){
+        if(this.controller.verificarSenha(this.investidor, this)){
             TransacoesMoedas transacoesMoedasFrame = new TransacoesMoedas();
             transacoesMoedasFrame.setVisible(true);
             this.setVisible(false);

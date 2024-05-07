@@ -14,7 +14,7 @@ public class Carteira {
     public Carteira(){
         saldoBitcoin = new Bitcoin(0.02, 0.03);
         saldoRipple = new Ripple(0.01, 0.01);
-        saldoReal = new Reais(0,0);
+        saldoReal = new Reais(0,0,0);
         saldoEthereum = new Ethereum(0.01, 0.02);
     }
 

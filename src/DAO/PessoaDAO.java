@@ -37,11 +37,20 @@ public class PessoaDAO {
         return resultado;
     }
 
-    public void atualizarDeposito(Pessoa pessoa, Carteira carteira, Investidor investidor)throws SQLException{
-        String sql = "update pessoa set saldoReal = ? where senha = ?";
+    public void atualizarDeposito(Investidor investidor,double valor)throws SQLException{
+        String sql = "update pessoa set saldoreal = ? where senha = ?";
         PreparedStatement statement = conn.prepareStatement(sql);
-        statement.setDouble(1, investidor.getCarteira().getSaldoReal().getQuant());
-        statement.setString(2, pessoa.getSenha());
+        statement.setDouble(1, valor);
+        statement.setString(2, investidor.getSenha());
+        statement.execute();
+        conn.close();
+    }
+    
+    public void atualizarSaque(Investidor investidor,double valor)throws SQLException{
+        String sql = "update pessoa set saldoreal = ? where senha = ?";
+        PreparedStatement statement = conn.prepareStatement(sql);
+        statement.setDouble(1, valor);
+        statement.setString(2, investidor.getSenha());
         statement.execute();
         conn.close();
     }

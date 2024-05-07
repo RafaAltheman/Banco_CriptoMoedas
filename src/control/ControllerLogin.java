@@ -7,6 +7,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
+import model.Investidor;
 import model.Pessoa;
 import view.Login;
 import view.Menu;
@@ -19,22 +20,26 @@ public class ControllerLogin {
     }
     
     public void loginPessoa() {
-        Pessoa pessoa = new Pessoa(null, view.getTxtcpf().getText(), view.getTxtSenha().getText());
+        Investidor investidor = new Investidor(null, view.getTxtcpf().getText(),
+        view.getTxtSenha().getText());
         Conexao conexao = new Conexao();
         try{
             Connection conn = conexao.getConnection();
             PessoaDAO dao = new PessoaDAO(conn);
-            ResultSet res = dao.consultar(pessoa);
+            ResultSet res = dao.consultar(investidor);
             if(res.next()){
                 JOptionPane.showMessageDialog(view,"Login Feito!");
-                Menu viewMenu = new Menu(pessoa);
+                String nome = res.getString("nome");
+                String cpf = res.getString("cpf");
+                String senha = res.getString("senha");
+                Menu viewMenu = new Menu(new Investidor(nome, cpf, senha));
                 viewMenu.setVisible(true);
                 view.setVisible(false);
             } else{
                 JOptionPane.showMessageDialog(view,"Login não foi efeituado.");
             }    
         } catch(SQLException e){
-            JOptionPane.showMessageDialog(view,"Erro de conexão");
+            JOptionPane.showMessageDialog(view, "Erro de conexão");
         }
     } 
 }

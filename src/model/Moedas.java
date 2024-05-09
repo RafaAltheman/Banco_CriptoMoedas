@@ -2,15 +2,16 @@
 package model;
 
 public class Moedas{
-    private double taxa1, taxa2, quant;
+    private double taxa1, taxa2, quant, cotacao;
 
     public Moedas() {
     }
 
-    public Moedas(double taxa1, double taxa2, double quant) {
+    public Moedas(double taxa1, double taxa2, double quant, double cotacao) {
         this.taxa1 = taxa1;
         this.taxa2 = taxa2;
         this.quant = quant;
+        this.cotacao = cotacao;
     }
 
     public double getTaxa1() {
@@ -35,6 +36,14 @@ public class Moedas{
 
     public void setQuant(double quant) {
         this.quant = quant;
+    }
+
+    public double getCotacao() {
+        return cotacao;
+    }
+
+    public void setCotacao(double cotacao) {
+        this.cotacao = cotacao;
     }
 
     

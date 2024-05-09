@@ -2,11 +2,12 @@
 package model;
 
 public class Ethereum extends Moedas{
-    private double quant;
+    private double quant, cotacao;
     
-    public Ethereum(double taxa1, double taxa2) {
-        super(0.01, 0.02, 0);
+    public Ethereum(double taxa1, double taxa2, double cotacao) {
+        super(0.01, 0.02, 0, 0);
         this.quant = 0;
+        this.cotacao = 15000;
     }
     
 //    public void CompraEthereum(double valorComprar, double QuantComprar){

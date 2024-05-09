@@ -372,7 +372,7 @@ public class Menu extends javax.swing.JFrame {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         if(this.controller.verificarSenha(this.investidor, this)){
-            TransacoesMoedas transacoesMoedasFrame = new TransacoesMoedas();
+            TransacoesMoedas transacoesMoedasFrame = new TransacoesMoedas(investidor);
             transacoesMoedasFrame.setVisible(true);
             this.setVisible(false);
         }
@@ -416,7 +416,7 @@ public class Menu extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         if(this.controller.verificarSenha(this.investidor, this)){
-            TransacoesMoedas transacoesMoedasFrame = new TransacoesMoedas();
+            TransacoesMoedas transacoesMoedasFrame = new TransacoesMoedas(investidor);
             transacoesMoedasFrame.setVisible(true);
             this.setVisible(false);
         }

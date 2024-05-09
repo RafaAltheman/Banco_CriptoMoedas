@@ -44,7 +44,7 @@ public class ControllerDeposito {
             JOptionPane.showMessageDialog(view, "Saldo atualizado com sucesso! Novo Saldo: " + saldoFinal);
             }
         }catch(SQLException e){
-            JOptionPane.showMessageDialog(view, "Falha de conexão!");
+            JOptionPane.showMessageDialog(view, "Falha de conexão!" + e);
         }
     }
 

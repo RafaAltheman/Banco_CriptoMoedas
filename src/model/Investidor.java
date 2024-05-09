@@ -19,6 +19,13 @@ public class Investidor extends Pessoa{
     public void setCarteira(Carteira carteira) {
         this.carteira = carteira;
     }
+
+    @Override
+    public String toString() {
+        return "Investidor{" + "carteira=" + carteira + '}' + "Pessoa{" + "nome=" + getNome() + ", cpf=" + getCpf() + ", senha=" + getSenha() + '}';
+    }
+
+   
     
     
 

@@ -12,5 +12,4 @@ public class ProjetoBancoCripto {
         Login lf = new Login();
         lf.setVisible(true);
     }
-    
 }

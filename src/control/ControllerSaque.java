@@ -37,11 +37,12 @@ public class ControllerSaque {
             double saldoAtual = res.getDouble("saldoreal");
             double valorDeposito = Double.parseDouble(valor); 
             double saldoFinal = saldoAtual - valorDeposito;
-            dao.atualizarDeposito(investidor, saldoFinal);
-            System.out.println(saldoFinal);
-            System.out.println(valorDeposito);
-            System.out.println(saldoAtual);
-            JOptionPane.showMessageDialog(view, "Saldo atualizado com sucesso! Novo Saldo: " + saldoFinal);
+                if (saldoFinal >= 0){
+                dao.atualizarDeposito(investidor, saldoFinal);
+                JOptionPane.showMessageDialog(view, "Saldo atualizado com sucesso! Novo Saldo: " + saldoFinal);
+                }else{
+                JOptionPane.showMessageDialog(view, "a operaçao nao foi realizada! Saldo insuficiente " + saldoFinal);
+                }
             }
         }catch(SQLException e){
             JOptionPane.showMessageDialog(view, "Falha de conexão!");

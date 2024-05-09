@@ -3,8 +3,8 @@ package model;
 public class Reais extends Moedas{
     private double quant;
      
-    public Reais(double taxa1, double taxa2, double quant) {
-        super( 0, 0, 0);
+    public Reais(double taxa1, double taxa2, double quant, double cotacao) {
+        super( 0, 0, 0, 0);
         this.quant = quant;
     }
 

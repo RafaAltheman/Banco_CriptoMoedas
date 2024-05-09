@@ -2,10 +2,12 @@
 package model;
 
 public class Ripple extends Moedas{
-    private double quant;
+    private double quant, cotacao;
     
-    public Ripple(double taxa1, double taxa2) {
-        super(0.01, 0.01,0);
+    public Ripple(double taxa1, double taxa2, double cotacao) {
+        super(0.01, 0.01,0, 0);
+        this.quant = 0;
+        this.cotacao = 3;
     }
     
 //    public void CompraRipple(double valorComprar, double QuantComprar){

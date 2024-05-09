@@ -54,4 +54,24 @@ public class PessoaDAO {
         statement.execute();
         conn.close();
     }
+    
+    public void atualizarCompraBitcoin(Investidor investidor,double valor, double total)throws SQLException{
+        String sql = "update pessoa set saldoreal = ?, saldobitcoin = ? where senha = ?";
+        PreparedStatement statement = conn.prepareStatement(sql);
+        statement.setDouble(1, valor);
+        statement.setDouble(2, total);
+        statement.setString(3, investidor.getSenha());
+        statement.execute();
+        conn.close();
+    }
+    
+    public void atualizarVendaBitcoin(Investidor investidor,double valor, double total)throws SQLException{
+        String sql = "update pessoa set saldoreal = ?,  saldobitcoin = ? where senha = ?";
+        PreparedStatement statement = conn.prepareStatement(sql);
+        statement.setDouble(1, valor);
+        statement.setDouble(2, total);
+        statement.setString(3, investidor.getSenha());
+        statement.execute();
+        conn.close();
+    }
 }

@@ -5,6 +5,7 @@ import DAO.PessoaDAO;
 import java.sql.SQLException;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
+import model.Investidor;
 import model.Pessoa;
 import view.Menu;
 
@@ -17,11 +18,11 @@ public class ControllerConfirma {
         this.pessoaDAO = new PessoaDAO(this.conexao.getConnection());
     }
 
-    public boolean verificarSenha(Pessoa pessoa, Menu menu) {
+    public boolean verificarSenha(Investidor investidor, Menu menu) {
         String senha = JOptionPane.showInputDialog(menu, "Confirme sua Senha:");
         try {
-            // Obter a senha armazenada no banco de dados
-            ResultSet res = pessoaDAO.consultar(pessoa);
+            
+            ResultSet res = pessoaDAO.consultar(investidor);
             if(res.next()){
                 if(res.getString("senha").equals(senha)){
                     return true;
@@ -29,7 +30,7 @@ public class ControllerConfirma {
             }
             return false;
         } catch (SQLException e) {
-            e.printStackTrace(); // Trate adequadamente a exceção
+            e.printStackTrace(); 
             return false;
         }
     }

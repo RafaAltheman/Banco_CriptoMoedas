@@ -1,4 +1,3 @@
-
 package DAO;
 
 import java.sql.Connection;
@@ -68,10 +67,21 @@ public class PessoaDAO {
     public void atualizarVendaBitcoin(Investidor investidor,double valor, double total)throws SQLException{
         String sql = "update pessoa set saldoreal = ?,  saldobitcoin = ? where senha = ?";
         PreparedStatement statement = conn.prepareStatement(sql);
-        statement.setDouble(1, valor);
+        statement.setDouble(1, total);
         statement.setDouble(2, total);
         statement.setString(3, investidor.getSenha());
         statement.execute();
         conn.close();
     }
+    
+//    public void mostrarSaldo(Investidor investidor) throws SQLException{
+//        String sql = "select * from pessoa where saldoreal = ?, saldoripple = ?, saldoethereum = ? and saldobitcoin = ?";
+//        
+//        PreparedStatement statement = conn.prepareStatement(sql);
+//        statement.setString(1, investidor.getCarteira());
+//        statement.setString(2, investidor.getSenha());
+//        statement.execute();
+//        ResultSet resultado = statement.getResultSet();
+//        return resultado;
+//    }
 }

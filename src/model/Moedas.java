@@ -1,4 +1,3 @@
-
 package model;
 
 public class Moedas{
@@ -45,6 +44,4 @@ public class Moedas{
     public void setCotacao(double cotacao) {
         this.cotacao = cotacao;
     }
-
-    
 }

@@ -23,7 +23,7 @@ public class ControllerBitcoin {
     private Investidor investidor;
 
     public ControllerBitcoin(Bitcoin view, Investidor investidor) {
-        System.out.println("investidor:" + investidor);
+        //System.out.println("investidor:" + investidor);
         this.view = view;
         this.investidor = investidor;
     }
@@ -39,9 +39,11 @@ public class ControllerBitcoin {
             double saldoReal = res.getDouble("saldoreal");
             double saldoBitcoin = res.getDouble("saldobitcoin");
             double quantCompraBitcoin = Double.parseDouble(valor); 
-            double valorReal = (investidor.getCarteira().getSaldoBitcoin().atualizarCotacaoBitcoin());
-            double quantReal = (quantCompraBitcoin*valorReal)*0.98;
-            double total = saldoReal - quantReal;
+            double valorReal = (investidor.getCarteira().getSaldoBitcoin().getCotacao());
+            System.out.println(investidor.getCarteira().getSaldoBitcoin().getCotacao());
+            double quantReal = (quantCompraBitcoin*valorReal)*0.02;
+            double quant = quantReal + valorReal;
+            double total = saldoReal - quant;
             double valor1 = quantCompraBitcoin + saldoBitcoin;
             if (total > 0){
               dao.atualizarCompraBitcoin(investidor, total, valor1);
@@ -65,8 +67,9 @@ public class ControllerBitcoin {
             double saldoReal = res.getDouble("saldoreal");
             double saldoBitcoin = res.getDouble("saldobitcoin");
             double quantCompraBitcoin = Double.parseDouble(valor);
-            double valorReal = (investidor.getCarteira().getSaldoBitcoin().atualizarCotacaoBitcoin()); 
+            double valorReal = (investidor.getCarteira().getSaldoBitcoin().getCotacao()); 
             double quantReal = (quantCompraBitcoin*valorReal)*0.03;
+            double quant = quantReal + valorReal;
             double total = saldoBitcoin + quantReal;
             double valor1 = saldoBitcoin - quantCompraBitcoin;
             if (total > 0){

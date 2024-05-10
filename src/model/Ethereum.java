@@ -1,6 +1,8 @@
 
 package model;
 
+import java.util.Random;
+
 public class Ethereum extends Moedas{
     private double quant, cotacao;
     
@@ -9,17 +11,30 @@ public class Ethereum extends Moedas{
         this.quant = 0;
         this.cotacao = 15000;
     }
-    
-//    public void CompraEthereum(double valorComprar, double QuantComprar){
-//        double transacao = (valorComprar * QuantComprar)* 0.01;
-//        this.quant = this.quant + QuantComprar;
-//    }
-//    
-//    public void VendaEthereum(double valorVenda, double QuantVenda){
-//        double transacao = (valorVenda * QuantVenda)* 0.02;
-//        this.quant = this.quant + QuantVenda;
-//    }
 
+    public double getQuant() {
+        return quant;
+    }
+
+    public void setQuant(double quant) {
+        this.quant = quant;
+    }
+
+    public double getCotacao() {
+        return cotacao;
+    }
+
+    public void setCotacao(double cotacao) {
+        this.cotacao = cotacao;
+    }
+    
+    public double atualizarCotacaoEthereum(){
+        Random rand = new Random();
+        double variacao = (rand.nextDouble() - 0.5) * 0.1; 
+        cotacao += cotacao * variacao;
+        setCotacao(cotacao);
+        return cotacao;
+    }
     
     
 }

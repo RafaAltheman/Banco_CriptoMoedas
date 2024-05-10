@@ -4,6 +4,12 @@
  */
 package control;
 
+import DAO.Conexao;
+import DAO.PessoaDAO;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
 import model.Investidor;
 import view.Ethereum;
 
@@ -20,45 +26,60 @@ public class ControllerEthereum {
         this.investidor = investidor;
     }
     
-    //public void compraEthereum(){
-//        String valor = view.getEthereum().getText();
-//        Conexao conexao = new Conexao();
-//        try{
-//            Connection conn = conexao.getConnection();
-//            PessoaDAO dao = new PessoaDAO(conn);
-//            ResultSet res = dao.consultar(investidor);
-//            if(res.next()){
-//            double saldoReal = res.getDouble("saldoreal");
-//            double saldoEthereum = res.getDouble("saldoethereum");
-//            double quantCompraEthereum = Double.parseDouble(valor); 
-//            //double quantReal = (quantCompraEthereum*cotacao)*0.01;
-//            //double total = quantReal - saldoEthereum;
-//            dao.atualizarCompraEthereum(investidor, total);
-//            JOptionPane.showMessageDialog(view, "Saldo atualizado com sucesso! Novo Saldo: " + total);
-//            }
-//        }catch(SQLException e){
-//            JOptionPane.showMessageDialog(view, "Falha de conexão!");
-//        }
-//    }
-//        
-//    public void vendaEthereum(){
-//        String valor = view.getEthereum().getText();
-//        Conexao conexao = new Conexao();
-//        try{
-//            Connection conn = conexao.getConnection();
-//            PessoaDAO dao = new PessoaDAO(conn);
-//            ResultSet res = dao.consultar(investidor);
-//            if(res.next()){
-//            double saldoReal = res.getDouble("saldoreal");
-//            double saldoEthereum = res.getDouble("saldoethereum");
-//            double quantCompraEthereum = Double.parseDouble(valor); 
-//            //double quantReal = (quantCompraEthereum*cotacao)*0.02;
-//            //double total = quantReal - saldoEthereum;
-//            dao.atualizarVendaEthereum(investidor, total);
-//            JOptionPane.showMessageDialog(view, "Saldo atualizado com sucesso! Novo Saldo: " + total);
-//            }
-//        }catch(SQLException e){
-//            JOptionPane.showMessageDialog(view, "Falha de conexão!");
-//        }
-//    }
+    public void compraEthereum(){
+        String valor = view.getEthereum().getText();
+        Conexao conexao = new Conexao();
+        try{
+            Connection conn = conexao.getConnection();
+            PessoaDAO dao = new PessoaDAO(conn);
+            ResultSet res = dao.consultar(investidor);
+            if(res.next()){
+            double saldoReal = res.getDouble("saldoreal");
+            double saldoEthereum = res.getDouble("saldoethereum");
+            double quantCompraEthereum = Double.parseDouble(valor); 
+            double valorReal = (investidor.getCarteira().getSaldoEthereum().getCotacao());
+            System.out.println(investidor.getCarteira().getSaldoEthereum().getCotacao());
+            double quantReal = (quantCompraEthereum*valorReal)*0.01;
+            double quant = quantReal + valorReal;
+            double total = saldoReal - quant;
+            double valor1 = quantCompraEthereum + saldoEthereum;
+            if (total >= 0){
+              dao.atualizarCompraRipple(investidor, total, valor1);
+              JOptionPane.showMessageDialog(view, "Saldo atualizado com sucesso! Novo Saldo: " + total);
+          }else{JOptionPane.showMessageDialog(view, "Compra não realizada! Saldo Insuficiente");}
+            }
+        }catch (SQLException e) {
+            e.printStackTrace(); 
+            JOptionPane.showMessageDialog(view, "Falha de conexão: " + e.getMessage());
+}
+    }
+        
+    public void vendaEthereum() throws SQLException{
+        String valor = view.getEthereum().getText();
+        Conexao conexao = new Conexao();
+        try{
+            Connection conn = conexao.getConnection();
+            PessoaDAO dao = new PessoaDAO(conn);
+            ResultSet res = dao.consultar(investidor);
+            if(res.next()){
+            double saldoReal = res.getDouble("saldoreal");
+            double saldoEthereum = res.getDouble("saldoethereum");
+            double quantCompraEthereum = Double.parseDouble(valor);
+            double valorReal = (investidor.getCarteira().getSaldoEthereum().getCotacao()); 
+            double quantReal = (quantCompraEthereum*valorReal)*0.02;
+            double quant = valorReal - quantReal;
+            double total = saldoReal + quant;
+            double valor1 = saldoEthereum - quantCompraEthereum;
+            if (total >= 0){
+                  dao.atualizarVendaRipple(investidor, total, valor1);
+                  JOptionPane.showMessageDialog(view, "Saldo atualizado com sucesso! Novo Saldo: " + total);
+             }else{JOptionPane.showMessageDialog(view, "Venda não efetuada! Saldo insuficiente");
+            
+            }
+    
+            }
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(view, "Falha de conexão!");
+        }
+    }
 }

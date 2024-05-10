@@ -4,19 +4,79 @@
  */
 package view;
 
+import control.ControllerRipple;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import model.Investidor;
+
 /**
  *
  * @author rafae
  */
 public class Ripple extends javax.swing.JFrame {
-
+    private Investidor investidor;
     /**
      * Creates new form Ripple
      */
-    public Ripple() {
+    public Ripple(Investidor investidor) {
         initComponents();
+        this.control = new ControllerRipple(this, investidor);
+        this.investidor = investidor;
     }
 
+    public JButton getjButton1() {
+        return jButton1;
+    }
+
+    public void setjButton1(JButton jButton1) {
+        this.jButton1 = jButton1;
+    }
+
+    public JButton getjButton2() {
+        return jButton2;
+    }
+
+    public void setjButton2(JButton jButton2) {
+        this.jButton2 = jButton2;
+    }
+
+    public JLabel getjLabel1() {
+        return jLabel1;
+    }
+
+    public void setjLabel1(JLabel jLabel1) {
+        this.jLabel1 = jLabel1;
+    }
+
+    public JLabel getjLabel2() {
+        return jLabel2;
+    }
+
+    public void setjLabel2(JLabel jLabel2) {
+        this.jLabel2 = jLabel2;
+    }
+
+    public JLabel getjLabel3() {
+        return jLabel3;
+    }
+
+    public void setjLabel3(JLabel jLabel3) {
+        this.jLabel3 = jLabel3;
+    }
+
+    public JTextField getRipple() {
+        return ripple;
+    }
+
+    public void setRipple(JTextField ripple) {
+        this.ripple = ripple;
+    }
+
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -57,6 +117,11 @@ public class Ripple extends javax.swing.JFrame {
 
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton2.setText("Vender");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("obs: para a compra a taxa é de 1% e para venda a taxa é 1%");
 
@@ -106,12 +171,20 @@ public class Ripple extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void rippleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rippleActionPerformed
-        // TODO add your handling code here:
+   
     }//GEN-LAST:event_rippleActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        control.compraRipple();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        try {
+            control.vendaRipple();
+        } catch (SQLException ex) {
+            Logger.getLogger(Ripple.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -148,6 +221,7 @@ public class Ripple extends javax.swing.JFrame {
 //        });
 //    }
 
+    private ControllerRipple control;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;

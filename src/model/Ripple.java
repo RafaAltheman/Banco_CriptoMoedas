@@ -1,6 +1,8 @@
 
 package model;
 
+import java.util.Random;
+
 public class Ripple extends Moedas{
     private double quant, cotacao;
     
@@ -9,22 +11,29 @@ public class Ripple extends Moedas{
         this.quant = 0;
         this.cotacao = 3;
     }
+
+    public double getQuant() {
+        return quant;
+    }
+
+    public void setQuant(double quant) {
+        this.quant = quant;
+    }
+
+    public double getCotacao() {
+        return cotacao;
+    }
+
+    public void setCotacao(double cotacao) {
+        this.cotacao = cotacao;
+    }
     
-//    public void CompraRipple(double valorComprar, double QuantComprar){
-//        double transacao = (valorComprar * QuantComprar)* 0.01;
-//        this.quant = this.quant + QuantComprar;
-//    }
-//    
-//    public void VendaRipple(double valorVenda, double QuantVenda){
-//        double transacao = (valorVenda * QuantVenda)* 0.01;
-//        this.quant = this.quant + QuantVenda;
-//    }
-//
-//    public double getQuant() {
-//        return quant;
-//    }
-//
-//    public void setQuant(double quant) {
-//        this.quant = quant;
-//    }
+    public double atualizarCotacaoRipple(){
+        Random rand = new Random();
+        double variacao = (rand.nextDouble() - 0.5) * 0.1; 
+        cotacao += cotacao * variacao;
+        setCotacao(cotacao);
+        return cotacao;
+    }
+    
 }

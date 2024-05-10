@@ -12,7 +12,6 @@ import javax.swing.JOptionPane;
 import model.Investidor;
 import model.Pessoa;
 import view.TransacoesMoedas;
-import view.SenhaConfirmar;
 import view.Login;
 
 /**

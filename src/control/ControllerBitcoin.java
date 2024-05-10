@@ -45,7 +45,7 @@ public class ControllerBitcoin {
             double quant = quantReal + valorReal;
             double total = saldoReal - quant;
             double valor1 = quantCompraBitcoin + saldoBitcoin;
-            if (total > 0){
+            if (total >= 0){
               dao.atualizarCompraBitcoin(investidor, total, valor1);
               JOptionPane.showMessageDialog(view, "Saldo atualizado com sucesso! Novo Saldo: " + total);
           }else{JOptionPane.showMessageDialog(view, "Compra não realizada! Saldo Insuficiente");}
@@ -69,10 +69,10 @@ public class ControllerBitcoin {
             double quantCompraBitcoin = Double.parseDouble(valor);
             double valorReal = (investidor.getCarteira().getSaldoBitcoin().getCotacao()); 
             double quantReal = (quantCompraBitcoin*valorReal)*0.03;
-            double quant = quantReal + valorReal;
-            double total = saldoBitcoin + quantReal;
+            double quant = valorReal - quantReal;
+            double total = saldoReal + quant;
             double valor1 = saldoBitcoin - quantCompraBitcoin;
-            if (total > 0){
+            if (total >= 0){
                   dao.atualizarVendaBitcoin(investidor, total, valor1);
                   JOptionPane.showMessageDialog(view, "Saldo atualizado com sucesso! Novo Saldo: " + total);
              }else{JOptionPane.showMessageDialog(view, "Venda não efetuada! Saldo insuficiente");

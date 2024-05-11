@@ -113,15 +113,5 @@ public class PessoaDAO {
         statement.execute();
         conn.close();
     }
-    
-//    public void mostrarSaldo(Investidor investidor) throws SQLException{
-//        String sql = "select * from pessoa where saldoreal = ?, saldoripple = ?, saldoethereum = ? and saldobitcoin = ?";
-//        
-//        PreparedStatement statement = conn.prepareStatement(sql);
-//        statement.setString(1, investidor.getCarteira());
-//        statement.setString(2, investidor.getSenha());
-//        statement.execute();
-//        ResultSet resultado = statement.getResultSet();
-//        return resultado;
-//    }
+   
 }

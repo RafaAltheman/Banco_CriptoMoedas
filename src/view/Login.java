@@ -8,13 +8,13 @@ import control.ControllerLogin;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import model.Investidor;
 
 /**
  *
  * @author unifrcampos
  */
 public class Login extends javax.swing.JFrame {
-
     /**
      * Creates new form Login
      */

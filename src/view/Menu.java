@@ -360,13 +360,15 @@ public class Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        Sair sair = new Sair();
+        Sair sair = new Sair(investidor);
         sair.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        // TODO add your handling code here:
+        Atualizacao atualizacao = new Atualizacao(investidor);
+        atualizacao.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
@@ -382,7 +384,9 @@ public class Menu extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if(this.controller.verificarSenha(this.investidor, this)){
-            System.out.println("deu");
+            Consulta consulta = new Consulta(investidor);
+            consulta.setVisible(true);
+            this.setVisible(false);
         }
         else{
             System.out.println("nao deu");

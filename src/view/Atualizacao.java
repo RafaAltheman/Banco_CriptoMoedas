@@ -25,6 +25,9 @@ public class Atualizacao extends javax.swing.JFrame {
         initComponents();
         this.control = new ControllerAtualiza(this, investidor);
         this.investidor = investidor;
+        this.bitcoin.setText(String.valueOf(this.investidor.getCarteira().getSaldoBitcoin().getCotacao()));
+        this.ethereum.setText(String.valueOf(this.investidor.getCarteira().getSaldoEthereum().getCotacao()));
+        this.ripple.setText(String.valueOf(this.investidor.getCarteira().getSaldoRipple().getCotacao()));
     }
 
     public Investidor getInvestidor() {
@@ -33,6 +36,30 @@ public class Atualizacao extends javax.swing.JFrame {
 
     public void setInvestidor(Investidor investidor) {
         this.investidor = investidor;
+    }
+
+    public JButton getjButton3() {
+        return jButton3;
+    }
+
+    public void setjButton3(JButton jButton3) {
+        this.jButton3 = jButton3;
+    }
+
+    public JButton getjButton4() {
+        return jButton4;
+    }
+
+    public void setjButton4(JButton jButton4) {
+        this.jButton4 = jButton4;
+    }
+
+    public JButton getjButton5() {
+        return jButton5;
+    }
+
+    public void setjButton5(JButton jButton5) {
+        this.jButton5 = jButton5;
     }
 
     public ControllerAtualiza getControl() {

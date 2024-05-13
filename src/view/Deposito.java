@@ -19,11 +19,15 @@ import model.Investidor;
  */
 public class Deposito extends javax.swing.JFrame {
     private Investidor investidor;
+    private Menu menu;
     /**
      * Creates new form Deposito
      */
-    public Deposito(Investidor investidor) {
+    public Deposito(Menu menu) {
         initComponents();
+        this.menu = menu;
+        this.menu.setVisible(false);
+        this.investidor = menu.getInvestidor();
         this.control = new ControllerDeposito(this,investidor);
     }
 
@@ -155,14 +159,8 @@ public class Deposito extends javax.swing.JFrame {
     }//GEN-LAST:event_depositoActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        Menu menu;
-        try {
-            menu = new Menu(investidor);
-            menu.setVisible(true);
-            this.setVisible(false);
-        } catch (SQLException ex) {
-            Logger.getLogger(Deposito.class.getName()).log(Level.SEVERE, null, ex);
-        } 
+        menu.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jButton5ActionPerformed
 
     /**

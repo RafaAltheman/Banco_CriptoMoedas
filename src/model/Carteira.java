@@ -12,10 +12,10 @@ public class Carteira {
     private Ethereum saldoEthereum;
 
     public Carteira(){
-        saldoBitcoin = new Bitcoin(0.02, 0.03,0);
-        saldoRipple = new Ripple(0.01, 0.01,0);
-        saldoReal = new Reais(0,0,0, 0);
-        saldoEthereum = new Ethereum(0.01, 0.02,0);
+        saldoBitcoin = new Bitcoin();
+        saldoRipple = new Ripple();
+        saldoReal = new Reais();
+        saldoEthereum = new Ethereum();
     }
 
     public Bitcoin getSaldoBitcoin() {

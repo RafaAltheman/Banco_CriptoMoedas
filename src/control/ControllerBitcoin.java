@@ -14,10 +14,6 @@ import javax.swing.JOptionPane;
 import model.Investidor;
 import view.Bitcoin;
 
-/**
- *
- * @author rafae
- */
 public class ControllerBitcoin {
     private Bitcoin view;
     private Investidor investidor;

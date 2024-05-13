@@ -1,4 +1,5 @@
 package model;
+import java.util.Random;
 
 public class Moedas{
     private double taxa1, taxa2, quant, cotacao;
@@ -43,5 +44,17 @@ public class Moedas{
 
     public void setCotacao(double cotacao) {
         this.cotacao = cotacao;
+    }
+    
+    public void atualizarCotacao() {
+        double cotatual = this.getCotacao();
+        Random r = new Random();
+        double rand = r.nextDouble() * 0.05 * cotatual;
+        boolean randbool = r.nextBoolean();
+        if(randbool){
+            rand *= -1;
+        }
+        cotatual += rand;
+        this.setCotacao(cotatual);
     }
 }

@@ -35,14 +35,14 @@ public class ControllerAtualiza {
             PessoaDAO dao = new PessoaDAO(conn);
             ResultSet res = dao.consultar(investidor);
             if(res.next()){
-                Bitcoin bt = new Bitcoin(0,0,0);
-                bt.atualizarCotacaoBitcoin();
+                Bitcoin bt = investidor.getCarteira().getSaldoBitcoin();
+                bt.atualizarCotacao();
                 view.getBitcoin().setText(String.valueOf(bt.getCotacao()));
-                Ethereum et = new Ethereum(0,0,0);
-                et.atualizarCotacaoEthereum();
+                Ethereum et = investidor.getCarteira().getSaldoEthereum();
+                et.atualizarCotacao();
                 view.getEthereum().setText(String.valueOf(et.getCotacao()));
-                Ripple rp = new Ripple(0,0,0);
-                rp.atualizarCotacaoRipple();
+                Ripple rp = investidor.getCarteira().getSaldoRipple();
+                rp.atualizarCotacao();
                 view.getRipple().setText(String.valueOf(rp.getCotacao()));
             }
         }catch (SQLException e){

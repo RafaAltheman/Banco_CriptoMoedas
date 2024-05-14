@@ -20,6 +20,7 @@ import model.Investidor;
  */
 public class Bitcoin extends javax.swing.JFrame {
     private Investidor investidor;
+    private Menu menu;
     
     public Bitcoin(Investidor investidor) {
         //System.out.println("investidor 2: " + investidor);
@@ -211,7 +212,7 @@ public class Bitcoin extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         try {
-            Menu menu = new Menu(investidor);
+            menu = new Menu(investidor);
             menu.setVisible(true);
             this.setVisible(false);
         } catch (SQLException ex) {

@@ -15,11 +15,13 @@ import model.Investidor;
  */
 public class Sair extends javax.swing.JFrame {
     private Investidor investidor;
+    private Menu menu;
     /**
      * Creates new form Sair
      */
     public Sair(Investidor investidor) {
         initComponents();
+        this.menu = menu;
         this.investidor = investidor;
     }
 
@@ -75,7 +77,7 @@ public class Sair extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        Menu menu;
+ 
         try {
             menu = new Menu(investidor);
             menu.setVisible(true);

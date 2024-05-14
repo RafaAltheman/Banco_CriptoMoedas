@@ -26,6 +26,16 @@ public class PessoaDAO {
         return resultado;
     }
     
+//    public ResultSet consultarID(Pessoa pessoa) throws SQLException{
+//        String sql = "select * from extrato where id = ?";
+//        
+//        PreparedStatement statement = conn.prepareStatement(sql);
+//        statement.setString(1, pessoa.getId());
+//        statement.execute();
+//        ResultSet resultado = statement.getResultSet();
+//        return resultado;
+//    }
+    
     public ResultSet confirmar(Pessoa pessoa) throws SQLException {
         String sql = "select * from pessoa where senha = ?";
 

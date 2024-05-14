@@ -19,11 +19,13 @@ import model.Investidor;
  */
 public class Ripple extends javax.swing.JFrame {
     private Investidor investidor;
+    private Menu menu;
     /**
      * Creates new form Ripple
      */
     public Ripple(Investidor investidor) {
         initComponents();
+        this.menu = menu;
         this.control = new ControllerRipple(this, investidor);
         this.investidor = investidor;
     }
@@ -201,7 +203,7 @@ public class Ripple extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        Menu menu;
+
         try {
             menu = new Menu(investidor);
             menu.setVisible(true);

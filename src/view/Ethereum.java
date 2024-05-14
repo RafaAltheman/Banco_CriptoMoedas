@@ -19,6 +19,7 @@ import model.Investidor;
  */
 public class Ethereum extends javax.swing.JFrame {
     private Investidor investidor;
+    private Menu menu;
     /**
      * Creates new form Ethereum
      */
@@ -202,7 +203,7 @@ public class Ethereum extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        Menu menu;
+        
         try {
             menu = new Menu(investidor);
             menu.setVisible(true);

@@ -17,11 +17,13 @@ import model.Investidor;
  */
 public class Consulta extends javax.swing.JFrame {
     private Investidor investidor; 
+    private Menu menu;
     /**
      * Creates new form Consulta
      */
     public Consulta(Investidor investidor) {
         initComponents();
+        this.menu = menu;
         this.control = new ControllerSaldo(this, investidor);
         this.investidor = investidor;
     }
@@ -219,7 +221,7 @@ public class Consulta extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        Menu menu;
+
         try {
             menu = new Menu(investidor);
             menu.setVisible(true);

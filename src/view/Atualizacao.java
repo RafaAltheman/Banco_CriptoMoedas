@@ -17,12 +17,14 @@ import model.Investidor;
  * @author rafae
  */
 public class Atualizacao extends javax.swing.JFrame {
-     private Investidor investidor;    
+     private Investidor investidor; 
+     private Menu menu;
     /**
      * Creates new form Atualizacao
      */
     public Atualizacao(Investidor investidor) {
         initComponents();
+        this.menu = menu;
         this.control = new ControllerAtualiza(this, investidor);
         this.investidor = investidor;
         this.bitcoin.setText(String.valueOf(this.investidor.getCarteira().getSaldoBitcoin().getCotacao()));
@@ -252,13 +254,12 @@ public class Atualizacao extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        Menu menu;
-         try {
+        try {
             menu = new Menu(investidor);
             menu.setVisible(true);
             this.setVisible(false);
-         } catch (SQLException ex) {
-             Logger.getLogger(Atualizacao.class.getName()).log(Level.SEVERE, null, ex);
+        }catch (SQLException ex) {
+            Logger.getLogger(Atualizacao.class.getName()).log(Level.SEVERE, null, ex);
          }
     }//GEN-LAST:event_jButton5ActionPerformed
 

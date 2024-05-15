@@ -3,7 +3,7 @@ Banco CriptoMoedas em JAVA POO
 
 Desenvolvimento de um Banco CriptoMoedas em JAVA POO que guarda as informações em um banco de dados no Postgresql.
 
-O porjeto contém as seguintes funções:
+O projeto contém as seguintes funções:
 -> Consultar Saldo
 -> Consultar Extrato
 -> Depositar Reais

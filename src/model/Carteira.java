@@ -1,10 +1,5 @@
-
 package model;
 
-/**
- *
- * @author unifrcampos
- */
 public class Carteira {
     private Bitcoin saldoBitcoin;
     private Ripple saldoRipple;
@@ -53,7 +48,5 @@ public class Carteira {
     @Override
     public String toString() {
         return "Carteira{" + "saldoBitcoin=" + saldoBitcoin + ", saldoRipple=" + saldoRipple + ", saldoReal=" + saldoReal + ", saldoEthereum=" + saldoEthereum + '}';
-    }
-    
-    
+    } 
 }

@@ -26,6 +26,10 @@ public class ControllerRipple {
         this.investidor = investidor;
     }
     
+    public void mostraCot(){
+        view.getCot().setText(String.valueOf(investidor.getCarteira().getSaldoRipple().getCotacao()));
+    }
+    
     public void compraRipple(){
         String valor = view.getRipple().getText();
         Conexao conexao = new Conexao();

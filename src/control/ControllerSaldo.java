@@ -33,6 +33,8 @@ public class ControllerSaldo {
                 view.getBitcoin().setText(String.valueOf(saldoBitcoin));
                 view.getEthereum().setText(String.valueOf(saldoEthereum));
                 view.getRipple().setText(String.valueOf(saldoRipple));
+                view.getNome().setText(investidor.getNome());
+                view.getCpf().setText(investidor.getCpf());
             }
         }catch (SQLException e){
             e.printStackTrace(); 

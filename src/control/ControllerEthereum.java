@@ -26,6 +26,10 @@ public class ControllerEthereum {
         this.investidor = investidor;
     }
     
+    public void mostraCot(){
+        view.getCot().setText(String.valueOf(investidor.getCarteira().getSaldoEthereum().getCotacao()));
+    }
+    
     public void compraEthereum(){
         String valor = view.getEthereum().getText();
         Conexao conexao = new Conexao();
@@ -38,7 +42,7 @@ public class ControllerEthereum {
             double saldoEthereum = res.getDouble("saldoethereum");
             double quantCompraEthereum = Double.parseDouble(valor); 
             double valorReal = (investidor.getCarteira().getSaldoEthereum().getCotacao());
-            System.out.println(investidor.getCarteira().getSaldoEthereum().getCotacao());
+            //System.out.println(investidor.getCarteira().getSaldoEthereum().getCotacao());
             double quantReal = (quantCompraEthereum*valorReal)*0.01;
             double quant = quantReal + valorReal;
             double total = saldoReal - quant;

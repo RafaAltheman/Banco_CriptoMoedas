@@ -26,15 +26,14 @@ public class PessoaDAO {
         return resultado;
     }
     
-//    public ResultSet consultarID(Pessoa pessoa) throws SQLException{
-//        String sql = "select * from extrato where id = ?";
-//        
+//    public ResultSet consultarExtrato(int idPessoa) throws SQLException {
+//        String sql = "SELECT * FROM extrato WHERE id_pessoa = ?";
 //        PreparedStatement statement = conn.prepareStatement(sql);
-//        statement.setString(1, pessoa.getId());
+//        statement.setInt(1, idPessoa);
 //        statement.execute();
-//        ResultSet resultado = statement.getResultSet();
-//        return resultado;
+//        return statement.getResultSet();
 //    }
+
     
     public ResultSet confirmar(Pessoa pessoa) throws SQLException {
         String sql = "select * from pessoa where senha = ?";

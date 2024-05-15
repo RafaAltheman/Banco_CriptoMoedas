@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package control;
 
 import DAO.Conexao;
@@ -24,6 +21,10 @@ public class ControllerBitcoin {
         this.investidor = investidor;
     }
     
+    public void mostraCot(){
+        view.getCot().setText(String.valueOf(investidor.getCarteira().getSaldoBitcoin().getCotacao()));
+    }
+    
     public void compraBitcoin(){
         String valor = view.getBitcoin().getText();
         Conexao conexao = new Conexao();
@@ -41,6 +42,7 @@ public class ControllerBitcoin {
             double quant = quantReal + valorReal;
             double total = saldoReal - quant;
             double valor1 = quantCompraBitcoin + saldoBitcoin;
+            view.getCot().setText(String.valueOf(investidor.getCarteira().getSaldoBitcoin().getCotacao()));
             if (total >= 0 && valor1 >= 0){
               dao.atualizarCompraBitcoin(investidor, total, valor1);
               JOptionPane.showMessageDialog(view, "Saldo atualizado com sucesso! Novo Saldo: " + total);

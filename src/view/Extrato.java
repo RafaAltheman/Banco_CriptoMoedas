@@ -4,10 +4,14 @@
  */
 package view;
 
-import control.ControllerExtrato;
+//import control.ControllerExtrato;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 import model.Investidor;
 
 /**
@@ -21,9 +25,75 @@ public class Extrato extends javax.swing.JFrame {
     public Extrato(Investidor investidor) {
         initComponents();
         this.menu = menu;
-        this.control = new ControllerExtrato(this, investidor);
+        //this.control = new ControllerExtrato(this, investidor);
         this.investidor = investidor;
     }
+
+    public Investidor getInvestidor() {
+        return investidor;
+    }
+
+    public void setInvestidor(Investidor investidor) {
+        this.investidor = investidor;
+    }
+
+    public Menu getMenu() {
+        return menu;
+    }
+
+    public void setMenu(Menu menu) {
+        this.menu = menu;
+    }
+
+//    public ControllerExtrato getControl() {
+//        return control;
+//    }
+//
+//    public void setControl(ControllerExtrato control) {
+//        this.control = control;
+//    }
+
+    public JButton getjButton1() {
+        return jButton1;
+    }
+
+    public void setjButton1(JButton jButton1) {
+        this.jButton1 = jButton1;
+    }
+
+    public JButton getjButton2() {
+        return jButton2;
+    }
+
+    public void setjButton2(JButton jButton2) {
+        this.jButton2 = jButton2;
+    }
+
+    public JLabel getjLabel1() {
+        return jLabel1;
+    }
+
+    public void setjLabel1(JLabel jLabel1) {
+        this.jLabel1 = jLabel1;
+    }
+
+    public JScrollPane getjScrollPane1() {
+        return jScrollPane1;
+    }
+
+    public void setjScrollPane1(JScrollPane jScrollPane1) {
+        this.jScrollPane1 = jScrollPane1;
+    }
+
+    public JTextArea getTextarea() {
+        return textarea;
+    }
+
+    public void setTextarea(JTextArea textarea) {
+        this.textarea = textarea;
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -37,7 +107,7 @@ public class Extrato extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        textarea = new javax.swing.JTextArea();
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -55,9 +125,9 @@ public class Extrato extends javax.swing.JFrame {
 
         jScrollPane1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        textarea.setColumns(20);
+        textarea.setRows(5);
+        jScrollPane1.setViewportView(textarea);
 
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jButton2.setText("Voltar");
@@ -104,7 +174,7 @@ public class Extrato extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        control.mostrarExtrato();
+       // control.mostrarExtrato();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -152,12 +222,12 @@ public class Extrato extends javax.swing.JFrame {
 //        });
 //    }
 
-    private ControllerExtrato control;
+    //private ControllerExtrato control;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea textarea;
     // End of variables declaration//GEN-END:variables
 }

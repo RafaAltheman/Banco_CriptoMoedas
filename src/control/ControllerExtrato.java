@@ -35,9 +35,9 @@ public class ControllerExtrato {
                 double ethereum = res.getDouble("ethereum");
                 double ripple = res.getDouble("ripple");
                 double id_pessoa = 1;
-                ResultSet resultado = dao.inserirExtrato(investidor,tipo,valor, cotacao, nome_moeda, real, bitcoin, ethereum, ripple,id_pessoa);
-                System.out.println("resultado: " + resultado);
-                view.getTextarea().setText(String.valueOf(resultado));
+                //ResultSet resultado = dao.inserirExtrato(investidor,tipo,valor, cotacao, nome_moeda, real, bitcoin, ethereum, ripple,id_pessoa);
+                //System.out.println("resultado: " + resultado);
+                //view.getTextarea().setText(String.valueOf(resultado));
             }
         }catch (SQLException e) {
             e.printStackTrace();

@@ -9,6 +9,7 @@ import DAO.PessoaDAO;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Date;
 import javax.swing.JOptionPane;
 import model.Investidor;
 import view.Ripple;
@@ -40,6 +41,8 @@ public class ControllerRipple {
             if(res.next()){
             double saldoReal = res.getDouble("saldoreal");
             double saldoRipple = res.getDouble("saldoripple");
+            double saldoBitcoin = res.getDouble("saldobitcoin");
+            double saldoEthereum = res.getDouble("saldoethereum");
             double quantCompraRipple = Double.parseDouble(valor); 
             double valorReal = (investidor.getCarteira().getSaldoRipple().getCotacao());
             //System.out.println(investidor.getCarteira().getSaldoRipple().getCotacao());
@@ -48,8 +51,10 @@ public class ControllerRipple {
             double total = saldoReal - quant;
             double valor1 = saldoRipple + quantCompraRipple;
             if (total >= 0 && valor1 >=0){
+              Date data = new Date();
               dao.atualizarCompraRipple(investidor, total, valor1);
-              JOptionPane.showMessageDialog(view, "Saldo atualizado com sucesso! Novo Saldo: " + total);
+              JOptionPane.showMessageDialog(view, "Saldo atualizado com sucesso! Novo Saldo: " + total);              
+              dao.inserirExtrato(investidor, data, true, total, valorReal, ("Ripple"), saldoReal, saldoBitcoin, saldoEthereum, saldoRipple);
           }else{JOptionPane.showMessageDialog(view, "Compra não realizada! Saldo Insuficiente");}
             }
         }catch (SQLException e) {
@@ -68,6 +73,8 @@ public class ControllerRipple {
             if(res.next()){
             double saldoReal = res.getDouble("saldoreal");
             double saldoRipple = res.getDouble("saldoripple");
+            double saldoBitcoin = res.getDouble("saldobitcoin");
+            double saldoEthereum = res.getDouble("saldoethereum");
             double quantCompraRipple = Double.parseDouble(valor);
             double valorReal = (investidor.getCarteira().getSaldoRipple().getCotacao()); 
             double quantReal = (quantCompraRipple*valorReal)*0.01;
@@ -75,8 +82,10 @@ public class ControllerRipple {
             double total = saldoReal + quant;
             double valor1 = saldoRipple - quantCompraRipple;
             if (total >= 0 && valor1 >=0){
+                  Date data = new Date();
                   dao.atualizarVendaRipple(investidor, total, valor1);
                   JOptionPane.showMessageDialog(view, "Saldo atualizado com sucesso! Novo Saldo: " + total);
+                  dao.inserirExtrato(investidor, data, false, total, valorReal, ("Ripple"), saldoReal, saldoBitcoin, saldoEthereum, saldoRipple);
              }else{JOptionPane.showMessageDialog(view, "Venda não efetuada! Saldo insuficiente");
             
             }

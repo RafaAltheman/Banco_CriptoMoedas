@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 import java.sql.SQLException;
+import java.util.Date;
 import model.Carteira;
 import model.Investidor;
 import model.Pessoa;
@@ -35,13 +36,18 @@ public class ControllerDeposito {
             ResultSet res = dao.consultar(investidor);
             if(res.next()){
             double saldoAtual = res.getDouble("saldoreal");
+            double saldoBitcoin = res.getDouble("saldobitcoin");
+            double saldoEthereum = res.getDouble("saldoethereum");
+            double saldoRipple = res.getDouble("saldoripple");
             double valorDeposito = Double.parseDouble(valor); 
             double saldoFinal = saldoAtual + valorDeposito;
+            Date data = new Date();
             dao.atualizarDeposito(investidor, saldoFinal);
-            System.out.println(saldoFinal);
-            System.out.println(valorDeposito);
-            System.out.println(saldoAtual);
+//            System.out.println(saldoFinal);
+//            System.out.println(valorDeposito);
+//            System.out.println(saldoAtual);
             JOptionPane.showMessageDialog(view, "Saldo atualizado com sucesso! Novo Saldo: " + saldoFinal);
+            dao.inserirExtrato(investidor, data, true, saldoFinal, 0, ("Real"), saldoAtual, saldoBitcoin, saldoEthereum, saldoRipple);
             }
         }catch(SQLException e){
             JOptionPane.showMessageDialog(view, "Falha de conexão!" + e);

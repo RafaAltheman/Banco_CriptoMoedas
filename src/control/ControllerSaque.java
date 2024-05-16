@@ -9,6 +9,7 @@ import DAO.PessoaDAO;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Date;
 import javax.swing.JOptionPane;
 import model.Investidor;
 import view.Saque;
@@ -35,11 +36,16 @@ public class ControllerSaque {
             ResultSet res = dao.consultar(investidor);
             if(res.next()){
             double saldoAtual = res.getDouble("saldoreal");
+            double saldoBitcoin = res.getDouble("saldobitcoin");
+            double saldoEthereum = res.getDouble("saldoethereum");
+            double saldoRipple = res.getDouble("saldoripple");
             double valorDeposito = Double.parseDouble(valor); 
             double saldoFinal = saldoAtual - valorDeposito;
+            Date data = new Date();
                 if (saldoFinal >= 0){
-                dao.atualizarDeposito(investidor, saldoFinal);
-                JOptionPane.showMessageDialog(view, "Saldo atualizado com sucesso! Novo Saldo: " + saldoFinal);
+                    dao.atualizarDeposito(investidor, saldoFinal);
+                    JOptionPane.showMessageDialog(view, "Saldo atualizado com sucesso! Novo Saldo: " + saldoFinal);
+                    dao.inserirExtrato(investidor, data, false, saldoFinal, 0, ("Real"), saldoAtual, saldoBitcoin, saldoEthereum, saldoRipple);
                 }else{
                 JOptionPane.showMessageDialog(view, "a operaçao nao foi realizada! Saldo insuficiente " + saldoFinal);
                 }

@@ -4,7 +4,9 @@
  */
 package view;
 
-//import control.ControllerExtrato;
+import control.ControllerExtrato;
+import static java.awt.SystemColor.control;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -174,7 +176,7 @@ public class Extrato extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       // control.mostrarExtrato();
+        control.mostrarExtrato();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -222,7 +224,7 @@ public class Extrato extends javax.swing.JFrame {
 //        });
 //    }
 
-    //private ControllerExtrato control;
+    private ControllerExtrato control;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -230,4 +232,8 @@ public class Extrato extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea textarea;
     // End of variables declaration//GEN-END:variables
+
+    public void setTextarea(ResultSet resultado) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

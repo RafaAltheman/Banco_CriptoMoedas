@@ -48,7 +48,7 @@ public class ControllerEthereum {
             double total = saldoReal - quant;
             double valor1 = quantCompraEthereum + saldoEthereum;
             if (total >= 0 && valor1 >=0){
-              dao.atualizarCompraRipple(investidor, total, valor1);
+              dao.atualizarCompraEthereum(investidor, total, valor1);
               JOptionPane.showMessageDialog(view, "Saldo atualizado com sucesso! Novo Saldo: " + total);
           }else{JOptionPane.showMessageDialog(view, "Compra não realizada! Saldo Insuficiente");}
             }
@@ -75,7 +75,7 @@ public class ControllerEthereum {
             double total = saldoReal + quant;
             double valor1 = saldoEthereum - quantCompraEthereum;
             if (total >= 0 && valor1 >=0){
-                  dao.atualizarVendaRipple(investidor, total, valor1);
+                  dao.atualizarVendaEthereum(investidor, total, valor1);
                   JOptionPane.showMessageDialog(view, "Saldo atualizado com sucesso! Novo Saldo: " + total);
              }else{JOptionPane.showMessageDialog(view, "Venda não efetuada! Saldo insuficiente");
             

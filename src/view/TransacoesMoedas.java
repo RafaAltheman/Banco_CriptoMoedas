@@ -4,6 +4,7 @@
  */
 package view;
 
+import java.awt.Color;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -23,6 +24,8 @@ public class TransacoesMoedas extends javax.swing.JFrame {
         initComponents();
         this.menu = menu;
         this.investidor = investidor;
+        
+        getContentPane().setBackground(Color.GREEN);
     }
 
     /**

@@ -422,7 +422,7 @@ public class Menu extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         if(this.controller.verificarSenha(this.investidor, this)){
-            Saque saque = new Saque(investidor);
+            Saque saque = new Saque(investidor, this);
             saque.setVisible(true);
         }
         else{

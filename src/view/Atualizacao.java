@@ -5,6 +5,7 @@
 package view;
 
 import control.ControllerAtualiza;
+import java.awt.Color;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -30,6 +31,8 @@ public class Atualizacao extends javax.swing.JFrame {
         this.bitcoin.setText(String.valueOf(this.investidor.getCarteira().getSaldoBitcoin().getCotacao()));
         this.ethereum.setText(String.valueOf(this.investidor.getCarteira().getSaldoEthereum().getCotacao()));
         this.ripple.setText(String.valueOf(this.investidor.getCarteira().getSaldoRipple().getCotacao()));
+        
+        getContentPane().setBackground(Color.white);
     }
 
     public Investidor getInvestidor() {

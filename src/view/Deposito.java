@@ -5,6 +5,7 @@
 package view;
 
 import control.ControllerDeposito;
+import java.awt.Color;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -29,6 +30,8 @@ public class Deposito extends javax.swing.JFrame {
         this.menu.setVisible(false);
         this.investidor = menu.getInvestidor();
         this.control = new ControllerDeposito(this,investidor);
+        
+        getContentPane().setBackground(Color.orange);
     }
 
     public JButton getBtDeposito() {
@@ -62,8 +65,6 @@ public class Deposito extends javax.swing.JFrame {
     public void setjLabel2(JLabel jLabel2) {
         this.jLabel2 = jLabel2;
     }
-
-
 
     
     /**

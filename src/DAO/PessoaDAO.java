@@ -25,16 +25,7 @@ public class PessoaDAO {
         ResultSet resultado = statement.getResultSet();
         return resultado;
     }
-    
-//    public ResultSet consultarExtrato(int idPessoa) throws SQLException {
-//        String sql = "SELECT * FROM extrato WHERE id_pessoa = ?";
-//        PreparedStatement statement = conn.prepareStatement(sql);
-//        statement.setInt(1, idPessoa);
-//        statement.execute();
-//        return statement.getResultSet();
-//    }
 
-    
     public ResultSet confirmar(Pessoa pessoa) throws SQLException {
         String sql = "select * from pessoa where senha = ?";
 
@@ -43,6 +34,25 @@ public class PessoaDAO {
         statement.execute();
         ResultSet resultado = statement.getResultSet();
         return resultado;
+    }
+    
+    public ResultSet inserirExtrato(Investidor investidor, String tipo, double valor, double cotacao, String nomeMoeda, double real, double bitcoin, double ethereum, double ripple, double id_pessoa) throws SQLException {
+        String sql = "INSERT INTO extrato (data, tipo, valor, cotacao, nome_moeda, real, bitcoin, ethereum, ripple, id_pessoa) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        PreparedStatement statement = conn.prepareStatement(sql);
+        statement.setTimestamp(1, new java.sql.Timestamp(System.currentTimeMillis()));
+        statement.setString(2, tipo);
+        statement.setDouble(3, valor);
+        statement.setDouble(4, cotacao);
+        statement.setString(5, nomeMoeda);
+        statement.setDouble(6, real);
+        statement.setDouble(7, bitcoin);
+        statement.setDouble(8, ethereum);
+        statement.setDouble(9, ripple);
+        statement.setDouble(10, id_pessoa);
+        statement.execute();
+        ResultSet resultado = statement.getResultSet();
+        return resultado;      
+
     }
 
     public void atualizarDeposito(Investidor investidor,double valor)throws SQLException{

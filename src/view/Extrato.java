@@ -8,6 +8,7 @@ import control.ControllerExtrato;
 import static java.awt.SystemColor.control;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JButton;
@@ -27,7 +28,7 @@ public class Extrato extends javax.swing.JFrame {
     public Extrato(Investidor investidor) {
         initComponents();
         this.menu = menu;
-        //this.control = new ControllerExtrato(this, investidor);
+        this.control = new ControllerExtrato(this, investidor);
         this.investidor = investidor;
     }
 
@@ -233,7 +234,4 @@ public class Extrato extends javax.swing.JFrame {
     private javax.swing.JTextArea textarea;
     // End of variables declaration//GEN-END:variables
 
-    public void setTextarea(ResultSet resultado) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
 }

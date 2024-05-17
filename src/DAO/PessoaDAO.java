@@ -28,6 +28,36 @@ public class PessoaDAO {
         ResultSet resultado = statement.getResultSet();
         return resultado;
     }
+    
+//     public int consultarID(Investidor investidor) throws SQLException{
+//        ResultSet resUser = this.consultar(investidor);
+//        if(!resUser.next()) {
+//            return -1;
+//        }
+//        int id_pessoa = resUser.getInt("id");
+//        String sql = "select * from extrato where id_pessoa = ?";
+//        
+//        PreparedStatement statement = conn.prepareStatement(sql);
+//        statement.setInt(1, id_pessoa);
+//        statement.execute();
+//        return statement.executeUpdate();
+//    }
+    
+    public int consultarID(Investidor investidor) throws SQLException {
+        ResultSet resUser = this.consultar(investidor);
+        if (!resUser.next()) {
+            return -1;
+        }
+        return resUser.getInt("id");
+}
+
+    public ResultSet consultarTransacoesPorID(int idPessoa) throws SQLException {
+        String sql = "SELECT * FROM extrato WHERE id_pessoa = ?";
+        PreparedStatement statement = conn.prepareStatement(sql);
+        statement.setInt(1, idPessoa);
+        return statement.executeQuery();
+}
+    
 
     public ResultSet confirmar(Pessoa pessoa) throws SQLException {
         String sql = "select * from pessoa where senha = ?";

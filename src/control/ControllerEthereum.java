@@ -52,7 +52,7 @@ public class ControllerEthereum {
               Date data = new Date();
               dao.atualizarCompraEthereum(investidor, total, valor1);
               JOptionPane.showMessageDialog(view, "Saldo atualizado com sucesso! Novo Saldo: " + total);
-              dao.inserirExtrato(investidor, data, true, total, valorReal, ("Ethereum"), saldoReal, saldoBitcoin, saldoEthereum, saldoRipple);
+              dao.inserirExtrato(investidor, data, false, quant, valorReal, ("Ethereum"), saldoReal, saldoBitcoin, saldoEthereum, saldoRipple);
           }else{JOptionPane.showMessageDialog(view, "Compra não realizada! Saldo Insuficiente");}
             }
         }catch (SQLException e) {
@@ -83,7 +83,7 @@ public class ControllerEthereum {
                   Date data = new Date();
                   dao.atualizarVendaEthereum(investidor, total, valor1);
                   JOptionPane.showMessageDialog(view, "Saldo atualizado com sucesso! Novo Saldo: " + total);
-                  dao.inserirExtrato(investidor, data, false, total, valorReal, ("Ethereum"), saldoReal, saldoBitcoin, saldoEthereum, saldoRipple);
+                  dao.inserirExtrato(investidor, data, true, total, valorReal, ("Ethereum"), saldoReal, saldoBitcoin, saldoEthereum, saldoRipple);
              }else{JOptionPane.showMessageDialog(view, "Venda não efetuada! Saldo insuficiente");
             
             }

@@ -29,20 +29,6 @@ public class PessoaDAO {
         return resultado;
     }
     
-//     public int consultarID(Investidor investidor) throws SQLException{
-//        ResultSet resUser = this.consultar(investidor);
-//        if(!resUser.next()) {
-//            return -1;
-//        }
-//        int id_pessoa = resUser.getInt("id");
-//        String sql = "select * from extrato where id_pessoa = ?";
-//        
-//        PreparedStatement statement = conn.prepareStatement(sql);
-//        statement.setInt(1, id_pessoa);
-//        statement.execute();
-//        return statement.executeUpdate();
-//    }
-    
     public int consultarID(Investidor investidor) throws SQLException {
         ResultSet resUser = this.consultar(investidor);
         if (!resUser.next()) {
@@ -136,7 +122,7 @@ public class PessoaDAO {
         statement.setDouble(2, total);
         statement.setString(3, investidor.getSenha());
         statement.execute();
-        conn.close();
+        //conn.close();
     }
     
     public void atualizarVendaEthereum(Investidor investidor,double valor, double total)throws SQLException{
@@ -146,7 +132,7 @@ public class PessoaDAO {
         statement.setDouble(2, total);
         statement.setString(3, investidor.getSenha());
         statement.execute();
-        conn.close();
+        //conn.close();
     }
     
     public void atualizarCompraRipple(Investidor investidor,double valor, double total)throws SQLException{
@@ -156,7 +142,7 @@ public class PessoaDAO {
         statement.setDouble(2, total);
         statement.setString(3, investidor.getSenha());
         statement.execute();
-        conn.close();
+        //conn.close();
     }
     
     public void atualizarVendaRipple(Investidor investidor,double valor, double total)throws SQLException{
@@ -166,7 +152,7 @@ public class PessoaDAO {
         statement.setDouble(2, total);
         statement.setString(3, investidor.getSenha());
         statement.execute();
-        conn.close();
+        //conn.close();
     }
    
 }

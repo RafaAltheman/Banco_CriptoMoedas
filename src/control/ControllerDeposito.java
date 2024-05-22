@@ -47,7 +47,7 @@ public class ControllerDeposito {
 //            System.out.println(valorDeposito);
 //            System.out.println(saldoAtual);
             JOptionPane.showMessageDialog(view, "Saldo atualizado com sucesso! Novo Saldo: " + saldoFinal);
-            dao.inserirExtrato(investidor, data, true, saldoFinal, 0, ("Real"), saldoAtual, saldoBitcoin, saldoEthereum, saldoRipple);
+            dao.inserirExtrato(investidor, data, true, valorDeposito, 0, ("Real"), saldoAtual, saldoBitcoin, saldoEthereum, saldoRipple);
             }
         }catch(SQLException e){
             JOptionPane.showMessageDialog(view, "Falha de conexão!" + e);

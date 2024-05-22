@@ -45,7 +45,7 @@ public class ControllerSaque {
                 if (saldoFinal >= 0){
                     dao.atualizarDeposito(investidor, saldoFinal);
                     JOptionPane.showMessageDialog(view, "Saldo atualizado com sucesso! Novo Saldo: " + saldoFinal);
-                    dao.inserirExtrato(investidor, data, false, saldoFinal, 0, ("Real"), saldoAtual, saldoBitcoin, saldoEthereum, saldoRipple);
+                    dao.inserirExtrato(investidor, data, false, valorDeposito, 0, ("Real"), saldoAtual, saldoBitcoin, saldoEthereum, saldoRipple);
                 }else{
                 JOptionPane.showMessageDialog(view, "a operaçao nao foi realizada! Saldo insuficiente " + saldoFinal);
                 }

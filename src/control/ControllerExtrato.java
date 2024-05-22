@@ -23,7 +23,7 @@ public class ControllerExtrato {
     public String adicionarTransacao(Date data, boolean tipo, double valor, double cotacao, String nome_moeda, double real, double bitcoin, double ethereum, double ripple, int id_pessoa) {
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         String dataFormatada = sdf.format(data);
-        String tipoTransacao = tipo ? "Compra" : "Venda";
+        String tipoTransacao = tipo ? "+" : "-";
         return String.format("Data: %s, Tipo: %s, Valor: %.2f, Cotação: %.2f, Moeda: %s, Real: %.2f, Bitcoin: %.2f, Ethereum: %.2f, Ripple: %.2f, ID Pessoa: %d",
             dataFormatada, tipoTransacao, valor, cotacao, nome_moeda, real, bitcoin, ethereum, ripple, id_pessoa);
     }
@@ -39,7 +39,7 @@ public class ControllerExtrato {
             int idPessoa = dao.consultarID(investidor);
             resTransacoes = dao.consultarTransacoesPorID(idPessoa);
             while (resTransacoes.next()) {
-                Date data = resTransacoes.getTimestamp("data"); // Use getTimestamp to include time
+                Date data = resTransacoes.getTimestamp("data"); 
                 boolean tipo = resTransacoes.getBoolean("tipo");
                 double valor = resTransacoes.getDouble("valor");
                 double cotacao = resTransacoes.getDouble("cotacao");

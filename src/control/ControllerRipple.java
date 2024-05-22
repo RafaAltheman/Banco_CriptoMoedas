@@ -54,7 +54,7 @@ public class ControllerRipple {
               Date data = new Date();
               dao.atualizarCompraRipple(investidor, total, valor1);
               JOptionPane.showMessageDialog(view, "Saldo atualizado com sucesso! Novo Saldo: " + total);              
-              dao.inserirExtrato(investidor, data, true, total, valorReal, ("Ripple"), saldoReal, saldoBitcoin, saldoEthereum, saldoRipple);
+              dao.inserirExtrato(investidor, data, false, quant, valorReal, ("Ripple"), saldoReal, saldoBitcoin, saldoEthereum, saldoRipple);
           }else{JOptionPane.showMessageDialog(view, "Compra não realizada! Saldo Insuficiente");}
             }
         }catch (SQLException e) {
@@ -85,7 +85,7 @@ public class ControllerRipple {
                   Date data = new Date();
                   dao.atualizarVendaRipple(investidor, total, valor1);
                   JOptionPane.showMessageDialog(view, "Saldo atualizado com sucesso! Novo Saldo: " + total);
-                  dao.inserirExtrato(investidor, data, false, total, valorReal, ("Ripple"), saldoReal, saldoBitcoin, saldoEthereum, saldoRipple);
+                  dao.inserirExtrato(investidor, data, true, total, valorReal, ("Ripple"), saldoReal, saldoBitcoin, saldoEthereum, saldoRipple);
              }else{JOptionPane.showMessageDialog(view, "Venda não efetuada! Saldo insuficiente");
             
             }

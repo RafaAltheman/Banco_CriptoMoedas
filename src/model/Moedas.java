@@ -1,6 +1,9 @@
 package model;
 import java.util.Random;
 
+// Na classe moedas eu declaro as taxas, quantidade de cada uma e a cotacao inicial. Os metodos get e 
+// set e a funcao de atualizar cotacao.
+
 public class Moedas{
     private double taxa1, taxa2, quant, cotacao;
 

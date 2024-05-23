@@ -11,6 +11,10 @@ import javax.swing.JTextArea;
 import model.Investidor;
 import view.Extrato;
 
+// Esse controller é responsavel por realizar a ligacao da view do Extrato com a funcao
+// do DAO de extrato. Para fazer pego os valores do banco de dados somente do usuario logado com a 
+// ajuda do resnext e realizo o print das operacoes.
+
 public class ControllerExtrato {
     private Extrato view;
     private Investidor investidor;
@@ -20,6 +24,9 @@ public class ControllerExtrato {
         this.investidor = investidor;
     }
 
+    // Essa funcao serve para formatar o tipo do print que sairaa na funcao de mostrar extrato.
+    // Para isso utilizo a biblioteca Date que pega a data oficial no qual o usuario fez a compra ou a venda, ou 
+    // deposito e saque.
     public String adicionarTransacao(Date data, boolean tipo, double valor, double cotacao, String nome_moeda, double real, double bitcoin, double ethereum, double ripple, int id_pessoa) {
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         String dataFormatada = sdf.format(data);
@@ -49,12 +56,14 @@ public class ControllerExtrato {
                 double ethereum = resTransacoes.getDouble("ethereum");
                 double ripple = resTransacoes.getDouble("ripple");
                 int id_pessoa = resTransacoes.getInt("id_pessoa");
-                
+                // chamo a funcao de cima e faco o print de cada operacao
                 extrato.append(this.adicionarTransacao(data, tipo, valor, cotacao, nome_moeda, real, bitcoin, ethereum, ripple, id_pessoa))
                        .append("\n");
             }
             JTextArea textArea = view.getTextarea();
             textArea.setText(extrato.toString());
+            
+            // finallly e catch corrigem erros de sql que tavam ocorrendo.
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {

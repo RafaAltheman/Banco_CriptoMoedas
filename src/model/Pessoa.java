@@ -1,8 +1,8 @@
 package model;
-/**
- *
- * @author unifrcampos
- */
+
+// Na classe Pessoa eu declaro nome, cpf, senha e id e seus metodos get e set
+// para posteriormente serem usados como dados da pessoa.
+
 public class Pessoa {
     private String nome, cpf, senha, id;
 

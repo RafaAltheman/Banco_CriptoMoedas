@@ -1,9 +1,9 @@
 package model;
 
-/**
- *
- * @author unifrcampos
- */
+// Na classe Investidor extende a classe pessoa e herda todos os metodos get e set de pessoa.
+// Alem disso, a classe da carteira é chamada e a cada vez que é criado um investidor é criada uma carteira para ele
+// e os metods get e set dela, ou seja, quando o investidor é criado ele ja vai possuir uma carteira automaticamente.
+
 public class Investidor extends Pessoa{
     private Carteira carteira;
 

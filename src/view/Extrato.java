@@ -181,12 +181,12 @@ public class Extrato extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        try {
+       try {
             menu = new Menu(investidor);
             menu.setVisible(true);
             this.setVisible(false);
         } catch (SQLException ex) {
-            Logger.getLogger(Extrato.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Bitcoin.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 

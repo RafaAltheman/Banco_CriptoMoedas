@@ -9,6 +9,10 @@ import javax.swing.JOptionPane;
 import model.Investidor;
 import view.Consulta;
 
+// Esse controller é responsavel por mostrar a ligacao da view do consulta com a funcao
+// do DAO de consultar. Para fazer isso, pego os valores que estao no banco somente do usuario logado
+// e faço um print nas areas da view.
+
 public class ControllerSaldo {
     private Consulta view;
     private Investidor investidor;

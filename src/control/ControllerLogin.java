@@ -12,6 +12,10 @@ import model.Pessoa;
 import view.Login;
 import view.Menu;
 
+// Esse controller faz o login no banco a partir de um usuario que ja existe no banco de dados.
+// se caso o usuario nao exista ele mostra mensagem de erro e tambem se algum dos dados estiver errado.
+
+
 public class ControllerLogin {
     private Login view;
 

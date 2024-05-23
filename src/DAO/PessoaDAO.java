@@ -10,6 +10,7 @@ import model.Carteira;
 import model.Investidor;
 import model.Pessoa;
 
+// O pessoaDAO é utilizado para fazer as alterações dos dados no banco de dados
 
 public class PessoaDAO {
     private Connection conn;
@@ -17,6 +18,8 @@ public class PessoaDAO {
     public PessoaDAO (Connection conn){
         this.conn = conn;
     }
+    
+    // Aqui faço a consulta do investidor, se ele ja existe no banco de dados
     
     public ResultSet consultar(Pessoa pessoa) throws SQLException{
         String sql = "select * from pessoa where cpf = ? and senha = ?";
@@ -55,6 +58,8 @@ public class PessoaDAO {
         return resultado;
     }
     
+    // Essa funcao é a base do extrato, eu pego de outra tabela do sql chamada extrato e adquiro as informacoes
+    // de so o investidor que esta logado
     public int inserirExtrato(Investidor investidor,Date data ,boolean tipo, double valor, double cotacao, String nomeMoeda, double real, double bitcoin, double ethereum, double ripple) throws SQLException {
         ResultSet resUser = this.consultar(investidor);
         if(!resUser.next()) {
@@ -77,6 +82,7 @@ public class PessoaDAO {
         }
     }
 
+    // atualizacao dos valores no banco
     public void atualizarDeposito(Investidor investidor,double valor)throws SQLException{
         String sql = "update pessoa set saldoreal = ? where senha = ?";
         PreparedStatement statement = conn.prepareStatement(sql);

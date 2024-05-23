@@ -14,10 +14,10 @@ import javax.swing.JOptionPane;
 import model.Investidor;
 import view.Saque;
 
-/**
- *
- * @author rafae
- */
+// Esse controller é responsavel por realizar a ligacao da view do saque com a funcao
+// do DAO de sacar. Para fazer pego os valores do banco de dados somente do usuario logado com a 
+// ajuda do resnext e realizo as operacoes.
+
 public class ControllerSaque {
     private Saque view;
     private Investidor investidor;

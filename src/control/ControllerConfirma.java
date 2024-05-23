@@ -9,6 +9,9 @@ import model.Investidor;
 import model.Pessoa;
 import view.Menu;
 
+// Esse controller cria um JOption pane para pedir a senha para o usuario e todas as funcoes 
+// dependem da senha estar correta para o usuario prosseguir, sendo assim, isso aumenta a segurança do banco.
+
 public class ControllerConfirma {
     private PessoaDAO pessoaDAO;
     private Conexao conexao;

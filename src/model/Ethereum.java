@@ -3,6 +3,10 @@ package model;
 
 import java.util.Random;
 
+// Esse model cria uma classe chamada Ethereum que extende todos os metodos do moedas e 
+// implementa uma interface chamada tarifacao que chama a funcao atualizarcotacao.
+// Essa funcao sorteia um numero com a bibliotaca java ramdom entre 5% acima ou abaixo da cotacao inicial de 15000.
+
 public class Ethereum extends Moedas implements Tarifacao{
     
     public Ethereum() {

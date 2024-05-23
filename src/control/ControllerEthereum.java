@@ -11,10 +11,10 @@ import javax.swing.JOptionPane;
 import model.Investidor;
 import view.Ethereum;
 
-/**
- *
- * @author rafae
- */
+// Esse controller é responsavel por realizar a ligacao da view do Ethereum com a funcao
+// do DAO de compra e venda de ethereums. Para fazer pego os valores do banco de dados somente do usuario logado com a 
+// ajuda do resnext e realizo as operacoes.
+
 public class ControllerEthereum {
     private Ethereum view;
     private Investidor investidor;

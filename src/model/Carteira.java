@@ -1,5 +1,8 @@
 package model;
 
+// Na classe carteira, as moedas sao criadas aqui dentro e puxam todos os metodos 
+// trazendo os get e set, e tambem declara o saldo que a pessoa vai ter na carteria de cada moeda.
+
 public class Carteira {
     private Bitcoin saldoBitcoin;
     private Ripple saldoRipple;

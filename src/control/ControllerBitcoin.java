@@ -12,6 +12,11 @@ import javax.swing.JOptionPane;
 import model.Investidor;
 import view.Bitcoin;
 
+
+// Esse controller é responsavel por fazer a ligacao entre as funcoes de compra e venda de 
+// bitcoins com a view, sendo assim, eu pego as informacoes do banco com o resnext do usuario logado.
+// Assim as alteraçoes seram feitas somente no banco do usuario logado.
+
 public class ControllerBitcoin {
     private Bitcoin view;
     private Investidor investidor;

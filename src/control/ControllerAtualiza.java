@@ -15,10 +15,10 @@ import model.Investidor;
 import model.Ripple;
 import view.Atualizacao;
 
-/**
- *
- * @author rafae
- */
+// Esse controller ele atualiza os valores das cotacoes na view.
+// ele pega os valores da carteira do usuario e com a funcao de atualizar cotacao
+// ele consegue alterar os valores e altera na carteira tambem.
+
 public class ControllerAtualiza {
     private Atualizacao view;
     private Investidor investidor;

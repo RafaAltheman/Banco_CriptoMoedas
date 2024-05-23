@@ -14,10 +14,10 @@ import view.Deposito;
 import model.Carteira;
 import view.Saque;
 
-/**
- *
- * @author rafae
- */
+// Esse controller é responsavel por realizar a ligacao da view do deposito com a funcao
+// do DAO de depositar. Para fazer pego os valores do banco de dados somente do usuario logado com a 
+// ajuda do resnext e realizo as operacoes.
+
 public class ControllerDeposito {
     private Deposito view;
     private Investidor investidor;
